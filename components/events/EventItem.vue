@@ -1,24 +1,24 @@
 <template>
-  <div class="eventItem">
+  <div class="eventItem" role="article" aria-labelledby="event-title-{{ event.id }}">
     <div class="eventDateTimeSection">
-      <div class="eventDate"><span class="weekday">{{ weekday }}, </span>{{ formattedDate }}</div>
-      <div class="eventTime">{{ formattedTime }}</div>
+      <div class="eventDate" aria-label="Event Date"><span class="weekday">{{ weekday }}, </span>{{ formattedDate }}</div>
+      <div class="eventTime" aria-label="Event Time">{{ formattedTime }}</div>
     </div>
-    <div class="child-2">
+    <div class="eventDetailsSection">
       <span class="eventCategory">{{ event.category }}</span>
-      <h4 class="eventTitle">{{ event.title }}</h4>
+      <h4 id="event-title-{{ event.id }}" class="eventTitle">{{ event.title }}</h4>
       <p class="eventDesc">{{ event.description }}</p>
-      <span class="eventLocation">{{ event.location }}</span>
+      <span class="eventLocation" aria-label="Event Location">{{ event.location }}</span>
     </div>
     <div class="buyTicketsSection">
       <BuyTickets />
-      <div class="eventPrice">{{ event.price }}€</div>
+      <div class="eventPrice" aria-label="Event Price">{{ event.price }}€</div>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import BuyTickets from "~/components/events/BuyTickets.vue"
+import BuyTickets from "@/components/events/BuyTickets.vue"
 function convertTo12HourFormat(time: string): string {
     let [hours] = time.split(':').map(Number);
     let period = hours >= 12 ? 'pm' : 'am';
@@ -50,46 +50,77 @@ const weekday: string = getThreeLetterWeekday(event.date);
 const formattedDate: string = formatDate(event.date);
 </script>
 
-<style>
-.eventItem {
+<style scoped lang="scss">
+ .eventItem {
     display: grid;
     grid-template-columns: 10% 80% 10%;
+
+    @media only screen and (max-width: 900px) {
+        display: flex;
+        flex-direction: column;
+        row-gap: 0.6em;
+    }
+
+    .eventDateTimeSection {
+      display: block;
+      
+      @media only screen and (max-width: 900px) {
+        display: flex;
+        align-items: center;
+      }
+
+      .eventDate {
+        font-weight: 300;
+
+        .weekday {
+          font-weight: bold;
+        }
+      }
+      .eventTime {
+          font-weight: bold;
+          
+          @media only screen and (max-width: 900px) {
+            margin-left: 0.5em;
+          }
+      }
+    }
+
+    .eventDetailsSection {
+      .eventTitle {
+        font-weight: bold;
+        font-size: 1.5em;
+        margin-top: 0.3em;
+      }
+      .eventDesc {
+        font-weight: 400;
+        font-size: 1.25em;
+        margin: 0;
+      }
+
+      .eventLocation {
+          font-size: 0.75em;
+      }
+
+      .eventCategory {
+          @include dark-box;
+          padding: 2px 4px;
+          font-size: 0.8rem;
+      }
+    }
+
+    .buyTicketsSection {
+      justify-self: flex-end;
+      text-align: right;
+
+      @media only screen and (max-width: 900px) {
+        text-align: left;
+      }
+
+      .eventPrice {
+        font-size: 1em;
+        margin-top: 0.5rem;
+      }
+    }
 }
-
-.buyTicketsSection {
-    justify-self: flex-end;
-    text-align: right;
-}
-
-.eventPrice {
-  font-size: 1em;
-  margin-top: 0.5rem;
-}
-
-
-@media only screen and (max-width: 900px) {
-  .eventItem {
-    display: flex;
-    flex-direction: column;
-    row-gap: 10px;
-
-  }
-
-  .eventDateTimeSection {
-    display: flex;
-    align-items: center;
-  }
-
-  .eventDateTimeSection .eventTime {
-    margin-left: 0.5em;
-  }
-
-  .buyTicketsSection {
-    text-align: left;
-  }
-}
-
-
-
 
 </style>

@@ -1,6 +1,6 @@
 <template>
-  <button class="buybutton">
-    Buy Tickets <img src="@/assets/images/shop.png" />
+  <button class="buybutton" aria-label="Buy Tickets">
+    Buy Tickets <img src="@/assets/images/shop.png" alt="Shop Icon" />
   </button>
 </template>
 
@@ -10,18 +10,18 @@
 
 <style  scoped lang="scss">
 .buybutton {
+    @include dark-box;
     display: flex;
     align-items: center;
     justify-content: center; 
-    padding: 10px 20px; 
+    padding: 0.6em 1.25em; 
     border: none; 
-    background-color: black; 
     cursor: pointer; 
-    color: white;
     font-family: $font-stack;
+
+  .img {
+    margin-left: 0; 
+  }
 }
 
-.buybutton img {
-    margin-left: 0px; 
-}
 </style>

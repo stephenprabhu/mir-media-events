@@ -1,10 +1,11 @@
+// Styles
+body {
+    font-family: $font-stack;
+}
+
 li {
     list-style: none;
     margin-bottom: 1em;
-}
-
-body {
-    font-family: $font-stack;
 }
 
 h1 {
@@ -12,50 +13,11 @@ h1 {
     font-size: 2em;
     color: $text-color-primary;
 }
+ 
+h4 {
+    margin:0;
+}
 
 ul {
     padding: 0;
-}
-
-.eventTitle {
-    font-weight: bold;
-    font-size: 1.5em;
-    margin:0;
-    margin-top: 0.3em;
-}
-
-.eventItem {
-    display: flex;
-    padding: 10px;
-}
-
-.eventDesc {
-    font-weight: 400;
-    font-size: 20px;
-    margin: 0;
-}
-
-.eventLocation {
-    font-size: 12px;
-}
-
-.eventCategory {
-    background-color: $primary-color;
-    color: $text-color-secondary;
-    padding: 2px 4px;
-    font-size: 14px;
-}
-
-.eventDate {
-    font-weight: 300;
-}
-
-
-.eventDate .weekday {
-    font-weight: bold;
-}
-
-
-.eventTime {
-    font-weight: bold;
 }
