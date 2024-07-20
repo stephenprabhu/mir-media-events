@@ -15,15 +15,13 @@ import EventFilters from '~/components/events/EventFilters.vue'
 
 <style scoped lang="scss">
 .container {
-    padding: 20px;
-}
-.header-section {
-  padding-left: 10px;
+    padding: 1.25em;
+    width: 80%;
+    margin: auto;
+
+    @media only screen and (max-width: 900px) {
+        padding: 0.6em;
+    }
 }
 
-@media only screen and (max-width: 900px) {
-  .container {
-    padding: 15px;
-  }
-}
 </style>

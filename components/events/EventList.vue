@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul>
-      <li v-for="event in filteredEvents" :key="event.id">
+      <li v-for="event in filteredEvents" :key="event.id" tabindex="3   " role="listitem">
         <EventItem :event="event" />
       </li>
     </ul>
@@ -15,10 +15,12 @@ import EventItem from './EventItem.vue';
 
 // Retrieve the event store
 const eventStore = useEventStore()
+const runtimeConfig = useRuntimeConfig()
+
 
 // Fetch data using useAsyncData
 const { data, error } = await useAsyncData('events', () =>
-  fetch('http://localhost:3000/api/events').then(res => res.json())
+  fetch(`${runtimeConfig.apiBase}/api/events`).then(res => res.json())
 )
 
 if (error.value) {
@@ -34,7 +36,3 @@ if (data.value && data.value.events) {
 const filteredEvents = computed(() => eventStore.filteredEvents)
 
 </script>
-
-<style>
-
-</style>

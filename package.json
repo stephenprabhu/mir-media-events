@@ -19,5 +19,13 @@
   },
   "overrides": {
     "vue": "latest"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.24.8",
+    "@testing-library/jest-dom": "^6.4.6",
+    "@testing-library/vue": "^8.1.0",
+    "@vue/test-utils": "^2.4.6",
+    "jest": "^29.7.0",
+    "vue-jest": "^3.0.7"
   }
 }
