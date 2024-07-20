@@ -1,75 +1,11 @@
-# Nuxt 3 Minimal Starter
+## Program and tickets
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+The page allows you to view the events. You can view the title, date and time, location and category of the events. The page also has filters that allow you to filter and find events easily.
 
-## Setup
+### Steps for Running the Project (using NPM):
+1. Download or clone the respository
+2. Run the command `npm install`
+3. Run the tests using `npm test` *(optional)*
+4. Run the command `npm run dev` to run the project on the local computer.
 
-Make sure to install the dependencies:
-
-```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+### [Full Documentation](https://pages.github.com/).
