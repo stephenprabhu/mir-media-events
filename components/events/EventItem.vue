@@ -18,7 +18,7 @@
 </template>
 
 <script lang="ts" setup>
-import BuyTickets from "~/components/events/BuyTickets.vue"
+import BuyTickets from "@/components/events/BuyTickets.vue"
 function convertTo12HourFormat(time: string): string {
     let [hours] = time.split(':').map(Number);
     let period = hours >= 12 ? 'pm' : 'am';

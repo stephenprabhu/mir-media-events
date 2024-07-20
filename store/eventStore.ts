@@ -1,5 +1,4 @@
 import { defineStore } from 'pinia'
-
 interface Event {
   id: number;
   title: string;
@@ -13,38 +12,33 @@ interface Event {
 
 interface State {
     allEvents: Event[];
-    filteredEvents: Event[];
     selectedCategory: string;
     selectedLocation: string;
 }
 
 export const useEventStore = defineStore('eventStore', {
-    state: (): State => ({
-      allEvents: [],
-      filteredEvents: [],
-      selectedCategory: '',
-      selectedLocation: ''
-    }),
-    actions: {
-      setEvents(events: Event[]) {
-        this.allEvents = events
-        this.filteredEvents = events
-      },
-      filterEvents() {
-        this.filteredEvents = this.allEvents.filter(event => {
-          return (
-            (this.selectedCategory === '' || event.category === this.selectedCategory) &&
-            (this.selectedLocation === '' || event.location === this.selectedLocation)
-          )
-        })
-      },
-      setCategory(category: string) {
-        this.selectedCategory = category
-        this.filterEvents()
-      },
-      setLocation(location: string) {
-        this.selectedLocation = location
-        this.filterEvents()
-      }
+  state: (): State => ({
+    allEvents: [],
+    selectedCategory: '',
+    selectedLocation: ''
+  }),
+  getters: {
+    filteredEvents: (state) => {
+      return state.allEvents.filter(event => {
+        return (!state.selectedCategory || event.category === state.selectedCategory) &&
+               (!state.selectedLocation || event.location === state.selectedLocation);
+      });
+    }
+  },
+  actions: {
+    setEvents(events: Event[]) {
+      this.allEvents = events;
     },
-  })
+    setCategory(category: string) {
+      this.selectedCategory = category;
+    },
+    setLocation(location: string) {
+      this.selectedLocation = location;
+    }
+  }
+});
