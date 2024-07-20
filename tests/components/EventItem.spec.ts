@@ -34,5 +34,8 @@ describe('EventItem.vue', () => {
     expect(wrapper.find('.eventTitle').text()).toBe('Beethoven Symphonie Nr. 9');
     expect(wrapper.find('.eventLocation').text()).toBe('Großer Saal');
     expect(wrapper.find('.eventPrice').text()).toBe('50€');
+    expect(wrapper.find('.eventDate').text()).toBe('Sat, 20. July 2024');
+    expect(wrapper.find('.eventTime').text()).toBe('7 pm');
+
   });
 });
