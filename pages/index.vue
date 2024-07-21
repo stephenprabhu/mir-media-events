@@ -17,7 +17,7 @@
   const eventStore = useEventStore()
 
   const { data, error } = await useAsyncData('events', () =>
-    fetch(`${runtimeConfig.apiBase}/api/events`).then(res => res.json())
+    fetch(`${runtimeConfig.public.apiBase}/api/events`).then(res => res.json())
   )
 
   if (error.value) {
