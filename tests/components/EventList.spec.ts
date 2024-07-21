@@ -46,41 +46,27 @@ describe('EventList.vue', () => {
     eventStore.allEvents = events;
   });
 
-  it('renders a list of events', () => {
-    const wrapper = mount(EventList, {
-      global: {
-        plugins: [pinia],
-      },
-    });
+  const wrapper = mount(EventList, {
+    global: {
+      plugins: [pinia],
+    },
+  });
 
+  it('renders a list of events', () => {
     const eventItems = wrapper.findAllComponents({ name: 'EventItem' });
     expect(eventItems.length).toBe(2);
   });
 
   it('renders a list of events filtered by category', async () => {
-    const wrapper = mount(EventList, {
-      global: {
-        plugins: [pinia],
-      },
-    });
-
     eventStore.setCategory('Jazz');
     await wrapper.vm.$nextTick(); 
-
     const eventItems = wrapper.findAllComponents({ name: 'EventItem' });
     expect(eventItems.length).toBe(1); 
   });
 
   it('renders a list of events filtered by location', async () => {
-    const wrapper = mount(EventList, {
-      global: {
-        plugins: [pinia],
-      },
-    });
-
     eventStore.setLocation('Kleiner Saal');
     await wrapper.vm.$nextTick();
-
     const eventItems = wrapper.findAllComponents({ name: 'EventItem' });
     expect(eventItems.length).toBe(1);
   });

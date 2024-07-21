@@ -27,27 +27,28 @@
   
   const eventStore = useEventStore();
   
+  //add category options from events
+  const categoryOptions = computed(() => {
+    const allCategories = eventStore.allEvents.map(event => ({
+      value: event.category,
+      label: event.category
+    }));
+    const uniqueCategories = [...new Set(allCategories.map(option => JSON.stringify(option)))].map(option => JSON.parse(option));
+    return [{ value: '', label: 'Category' }, ...uniqueCategories];
+  });
+  
+  //add location options from events
+  const locationOptions = computed(() => {
+    const allLocations = eventStore.allEvents.map(event => ({
+      value: event.location,
+      label: event.location
+    }));
+    const uniqueLocations = [...new Set(allLocations.map(option => JSON.stringify(option)))].map(option => JSON.parse(option));
+    return [{ value: '', label: 'Location' }, ...uniqueLocations];
+  });
+
   const selectedCategory = ref('');
   const selectedLocation = ref('');
-  
-  const categoryOptions = computed(() => {
-  const allCategories = eventStore.allEvents.map(event => ({
-    value: event.category,
-    label: event.category
-  }));
-  const uniqueCategories = [...new Set(allCategories.map(option => JSON.stringify(option)))].map(option => JSON.parse(option));
-  return [{ value: '', label: 'Category' }, ...uniqueCategories];
-});
-  
-const locationOptions = computed(() => {
-  const allLocations = eventStore.allEvents.map(event => ({
-    value: event.location,
-    label: event.location
-  }));
-  const uniqueLocations = [...new Set(allLocations.map(option => JSON.stringify(option)))].map(option => JSON.parse(option));
-  return [{ value: '', label: 'Location' }, ...uniqueLocations];
-});
-
   watch(selectedCategory, (newCategory) => {
     eventStore.setCategory(newCategory);
   });

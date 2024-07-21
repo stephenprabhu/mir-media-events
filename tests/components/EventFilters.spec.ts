@@ -14,34 +14,34 @@ interface Event {
   time: string;
   price: number;
 }
-  describe('EventFilters', () => {
-    const pinia = createTestingPinia({ stubActions: false });
-    const eventStore = useEventStore(pinia);
 
+describe('EventFilters', () => {
+  const pinia = createTestingPinia({ stubActions: false });
+  const eventStore = useEventStore(pinia);
 
-    beforeEach(() => {        
-      const events: Event[] = [
-        {
-            "id": 1,
-            "title": "Beethoven Symphonie Nr. 9",
-            "date": "2024-07-20",
-            "time": "19:00",
-            "category": "Klassik",
-            "description": "Erleben Sie Beethovens Meisterwerk in einer atemberaubenden Aufführung.",
-            "location": "Großer Saal",
-            "price": 50.00
-        },
-        {
-          "id": 2,
-          "title": "Jazz Nacht",
-          "date": "2024-07-21",
-          "time": "20:00",
-          "category": "Jazz",
-          "description": "Eine unvergessliche Nacht mit den besten Jazzmusikern der Stadt.",
-          "location": "Kleiner Saal",
-          "price": 30.00
-        }
-      ];
+  beforeEach(() => {        
+    const events: Event[] = [
+      {
+          "id": 1,
+          "title": "Beethoven Symphonie Nr. 9",
+          "date": "2024-07-20",
+          "time": "19:00",
+          "category": "Klassik",
+          "description": "Erleben Sie Beethovens Meisterwerk in einer atemberaubenden Aufführung.",
+          "location": "Großer Saal",
+          "price": 50.00
+      },
+      {
+        "id": 2,
+        "title": "Jazz Nacht",
+        "date": "2024-07-21",
+        "time": "20:00",
+        "category": "Jazz",
+        "description": "Eine unvergessliche Nacht mit den besten Jazzmusikern der Stadt.",
+        "location": "Kleiner Saal",
+        "price": 30.00
+      }
+    ];
     eventStore.allEvents = events;
   })
 
@@ -55,7 +55,6 @@ interface Event {
 
     expect(locationDropdown.props().options.length).toBe(3) 
     expect(categoryDropdown.props().options.length).toBe(3)
-    
   })
 
   it('updates the store when an location is selected', async () => {

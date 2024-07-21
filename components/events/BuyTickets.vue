@@ -4,24 +4,19 @@
   </button>
 </template>
 
-<script lang="ts" setup>
-
-</script>
-
 <style  scoped lang="scss">
-.buybutton {
-    @include dark-box;
-    display: flex;
-    align-items: center;
-    justify-content: center; 
-    padding: 0.6em 1.25em; 
-    border: none; 
-    cursor: pointer; 
-    font-family: $font-stack;
+  .buybutton {
+      @include dark-box;
+      display: flex;
+      align-items: center;
+      justify-content: center; 
+      padding: 0.6em 1.25em; 
+      border: none; 
+      cursor: pointer; 
+      font-family: $font-stack;
 
-  .img {
-    margin-left: 0; 
+    .img {
+      margin-left: 0; 
+    }
   }
-}
-
 </style>
