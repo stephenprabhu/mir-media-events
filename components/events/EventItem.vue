@@ -53,7 +53,8 @@ const formattedDate: string = formatDate(event.date);
 <style scoped lang="scss">
  .eventItem {
     display: grid;
-    grid-template-columns: 10% 80% 10%;
+    grid-template-columns: 15% 75% 10%;
+    margin-bottom: 2em;
 
     @media only screen and (max-width: 900px) {
         display: flex;

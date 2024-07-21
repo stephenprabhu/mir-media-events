@@ -20,3 +20,8 @@ const eventStore = useEventStore()
 const filteredEvents = computed(() => eventStore.filteredEvents)
 
 </script>
+<style>
+li {
+  
+}
+</style>
