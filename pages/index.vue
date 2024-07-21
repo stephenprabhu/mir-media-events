@@ -37,6 +37,7 @@
 
     @media only screen and (max-width: 900px) {
         padding: 0.6em;
+        width: 85%;
     }
   }
 </style>

@@ -9,3 +9,4 @@ The page allows you to view the events. You can view the title, date and time, l
 4. Run the command `npm run dev` to run the project on the local computer.
 
 ### [Full Documentation](https://navy-termite-111.notion.site/Mir-Midea-Frontend-Project-4f2c8dd9c56340ef86dc1a3dfda70489?pvs=4).
+### [Live Website](https://eventickets.stephenprabhu.com).
