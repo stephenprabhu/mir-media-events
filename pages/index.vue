@@ -21,7 +21,6 @@
   )
 
   if (error.value) {
-    alert("Error fetching events. Please try again later.")
     console.error('Error fetching events:', error.value)
   }
 
