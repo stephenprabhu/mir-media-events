@@ -11,9 +11,9 @@ interface Event {
 }
 
 interface State {
-    allEvents: Event[];
-    selectedCategory: string;
-    selectedLocation: string;
+  allEvents: Event[];
+  selectedCategory: string;
+  selectedLocation: string;
 }
 
 export const useEventStore = defineStore('eventStore', {
