@@ -1,5 +1,5 @@
 <template>
-  <button class="buybutton" :aria-label="label">
+  <button class="darkbutton" :aria-label="label">
     <slot></slot>
   </button>
 </template>
@@ -10,7 +10,7 @@
 </script>
 
 <style scoped lang="scss">
-  .buybutton {
+  .darkbutton {
         @include dark-box;
         display: flex;
         align-items: center;
