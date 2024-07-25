@@ -1,10 +1,11 @@
 <template>
-  <button class="buybutton" aria-label="Buy Tickets">
+  <button class="buybutton" :aria-label="label">
     <slot></slot>
   </button>
 </template>
 
 <script lang="ts" setup>
+  const {label} = defineProps(['label'])
 
 </script>
 
