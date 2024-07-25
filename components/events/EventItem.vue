@@ -1,8 +1,10 @@
 <template>
-  <div class="eventItem" role="article" aria-labelledby="event-title-{{ event.id }}">
+  <li class="eventItem" role="listitem" aria-labelledby="event-title-{{ event.id }}">
     <div class="eventDateTimeSection">
-      <div class="eventDate" aria-label="Event Date"><span class="weekday">{{ weekday }}, </span>{{ formattedDate }}</div>
-      <div class="eventTime" aria-label="Event Time">{{ formattedTime }}</div>
+      <time :datetime="event.date" class="eventDate" aria-label="Event Date">
+        <span class="weekday">{{ weekday }}, </span>{{ formattedDate }}
+      </time>
+      <time :datetime="event.time" class="eventTime" aria-label="Event Time">{{ formattedTime }}</time>
     </div>
     <div class="eventDetailsSection">
       <span class="eventCategory">{{ event.category }}</span>
@@ -11,14 +13,16 @@
       <span class="eventLocation" aria-label="Event Location">{{ event.location }}</span>
     </div>
     <div class="buyTicketsSection">
-      <BuyTickets />
+      <DarkButtton>
+        Buy Tickets <img src="@/assets/images/shop.png" alt="Shop Icon" />
+      </DarkButtton>
       <div class="eventPrice" aria-label="Event Price">{{ event.price }}€</div>
     </div>
-  </div>
+  </li>
 </template>
 
 <script lang="ts" setup>
-  import BuyTickets from "@/components/events/BuyTickets.vue"
+  import DarkButtton from "../general/DarkButtton.vue";
   function convertTo12HourFormat(time: string): string {
       let [hours] = time.split(':').map(Number);
       let period = hours >= 12 ? 'pm' : 'am';
@@ -53,25 +57,30 @@
 <style scoped lang="scss">
   .eventItem {
     display: grid;
-    grid-template-columns: 15% 75% 10%;
-    margin-bottom: 2em;
+    grid-template-columns: 15% 70% 15%;
+    margin-bottom: $desktop-default-spacing;
+    width: 100%;
 
     @media only screen and (max-width: 900px) {
         display: flex;
         flex-direction: column;
-        row-gap: 0.6em;
+        row-gap: $mobile-default-spacing;
+        margin-bottom: $mobile-default-spacing;
     }
 
     .eventDateTimeSection {
       display: block;
+      font-size: 18px;
       
       @media only screen and (max-width: 900px) {
         display: flex;
+        font-size: 16px;
         align-items: center;
       }
 
       .eventDate {
         font-weight: 300;
+        display: block;
 
         .weekday {
           font-weight: bold;
@@ -88,24 +97,36 @@
 
     .eventDetailsSection {
       .eventTitle {
-        font-weight: bold;
-        font-size: 1.5em;
-        margin-top: 0.3em;
+        font-weight: 700;
+        font-size: 48px;
+         line-height: 120%;
+
+        @media only screen and (max-width: 900px) {
+          font-size: 32px;
+        }
       }
       .eventDesc {
         font-weight: 400;
-        font-size: 1.25em;
+        font-size: $desktop-default-spacing;
         margin: 0;
+        line-height: 120%;
+        @media only screen and (max-width: 900px) {
+          font-size: $mobile-default-spacing;
+        }
       }
 
       .eventLocation {
-          font-size: 0.75em;
+          font-size:18px;
+          @media only screen and (max-width: 900px) {
+          font-size: 16px;
+          line-height: 120%;
+        }
       }
 
       .eventCategory {
           @include dark-box;
           padding: 2px 4px;
-          font-size: 0.8rem;
+          font-size: 14px;
       }
     }
 
@@ -118,8 +139,11 @@
       }
 
       .eventPrice {
-        font-size: 1em;
+        font-size: 18px;
         margin-top: 0.5rem;
+        @media only screen and (max-width: 900px) {
+          font-size: 16px;
+        }
       }
     }
   }

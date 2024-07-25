@@ -73,6 +73,7 @@
   .filterSection {
     display: flex;
     gap: 1.5em;
+    padding-bottom: 32px;
   }
 </style>
   

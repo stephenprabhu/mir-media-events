@@ -30,12 +30,12 @@
 <style scoped lang="scss">
   .container {
     padding: 1.25em;
-    width: 80%;
+    width: 85%;
     margin: auto;
 
     @media only screen and (max-width: 900px) {
         padding: 0.6em;
-        width: 85%;
+        width: 95%;
     }
   }
 </style>

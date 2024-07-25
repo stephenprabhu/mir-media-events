@@ -138,12 +138,16 @@
     align-items: center;
     cursor: pointer;
     font-family: $font-stack;
-    font-size: 0.8rem;
+    font-size: 18px;
     padding: 10px;
     background-color: #fff;
     border: none;
     border-bottom: 1px solid $primary-color;
     transition: background-color 0.3s;
+
+    @media only screen and (max-width: 900px) {
+      font-size: 12px;
+    }
 
     &:focus {
       outline: none;
@@ -173,6 +177,12 @@
     li {
       padding: 10px;
       cursor: pointer;
+      font-size: 18px;
+
+      @media only screen and (max-width: 900px) {
+        font-size: 12px;
+      }
+
       &:focus {
         outline: none;
         background-color: $primary-color;
