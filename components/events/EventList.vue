@@ -1,6 +1,6 @@
 <template>
-    <ul tabindex="3" role="list" class="eventList">
-      <EventItem v-for="event in filteredEvents" :key="event.id" :event="event" />
+    <ul role="list" class="eventList">
+      <EventItem v-for="event in filteredEvents" :key="event.id" :event="event"  />
     </ul>
 </template>
 

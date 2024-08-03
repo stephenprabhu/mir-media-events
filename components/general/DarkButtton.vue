@@ -18,7 +18,7 @@
         padding: 16px 20px; 
         border: none; 
         cursor: pointer; 
-        font-size: 14px;
+        font-size: 18px;
         font-family: $font-stack;
         font-weight: 400;
         line-height: 120%; 

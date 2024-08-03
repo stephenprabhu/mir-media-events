@@ -1,5 +1,5 @@
 <template>
-  <li class="eventItem" role="listitem" aria-labelledby="event-title-{{ event.id }}">
+  <li class="eventItem" role="listitem" :aria-labelledby="`event-title-${event.id}`" tabindex="3"> 
     <div class="eventDateTimeSection">
       <time :datetime="event.date" class="eventDate" aria-label="Event Date">
         <span class="weekday">{{ weekday }}, </span>{{ formattedDate }}
@@ -8,7 +8,7 @@
     </div>
     <div class="eventDetailsSection">
       <span class="eventCategory">{{ event.category }}</span>
-      <h4 id="event-title-{{ event.id }}" class="eventTitle">{{ event.title }}</h4>
+      <h4 :id="`event-title-${ event.id }`" class="eventTitle">{{ event.title }}</h4>
       <p class="eventDesc">{{ event.description }}</p>
       <span class="eventLocation" aria-label="Event Location">{{ event.location }}</span>
     </div>
@@ -107,7 +107,7 @@
       }
       .eventDesc {
         font-weight: 400;
-        font-size: $desktop-default-spacing;
+        font-size: 36px;
         margin: 0;
         line-height: 120%;
         @media only screen and (max-width: 900px) {
