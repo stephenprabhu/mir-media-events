@@ -204,7 +204,7 @@ onMounted(() => {
       font-size: 18px;
 
       @media only screen and (max-width: 900px) {
-        font-size: 12px;
+        font-size: 14px;
       }
 
       &:focus {

@@ -24,7 +24,8 @@
         line-height: 120%; 
 
     @media only screen and (max-width: 900px) {
-        padding: 8px 16px; 
+        padding: 8px 16px;
+        font-size: 16px;
     }
     .img {
       margin-left: 0; 

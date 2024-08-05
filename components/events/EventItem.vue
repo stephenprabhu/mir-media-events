@@ -13,7 +13,7 @@
       <span class="eventLocation" aria-label="Event Location">{{ event.location }}</span>
     </div>
     <div class="buyTicketsSection">
-      <DarkButtton label="Buy Tickets">
+      <DarkButtton label="Buy Tickets" >
         Buy Tickets <img src="@/assets/images/shop.png" alt="Shop Icon" />
       </DarkButtton>
       <div class="eventPrice" aria-label="Event Price">{{ event.price }}€</div>
